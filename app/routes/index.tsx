@@ -19,7 +19,7 @@ export default function Main() {
       <h1>Cryptocurrencies</h1>
       <R.Crypts>
         {crypts.map((p: any) => (
-          <R.Link key={p.id} to={`/crypt/${p.name}`}>
+          <R.Link key={p.id} to={`/cryptInfo/${p.name}`}>
             {p.name}
           </R.Link>
         ))}
