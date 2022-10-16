@@ -37,6 +37,7 @@ export default function JokesIndexRoute() {
 
   const attributes = useMemo(
     () => ({
+      Name: data.name,
       Symbol: data.symbol,
       Supply: data.supply,
       MaxSupply: data.maxSupply || 'Не указано',
@@ -69,3 +70,5 @@ export default function JokesIndexRoute() {
     </Container>
   );
 }
+
+

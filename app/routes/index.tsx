@@ -1,6 +1,7 @@
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node'; // or cloudflare/deno
 import { useLoaderData } from '@remix-run/react';
+import CryptItem from '~/components/CryptItem';
 
 import crypts, { Crypts } from '../../lib/crypts';
 import * as R from '../styles/CryptsContainer';
@@ -17,13 +18,11 @@ export default function Main() {
   return (
     <R.Container>
       <h1>Cryptocurrencies</h1>
-      <R.Crypts>
-        {crypts.map((p: any) => (
-          <R.Link key={p.id} to={`/cryptInfo/${p.name}`}>
-            {p.name}
-          </R.Link>
-        ))}
-      </R.Crypts>
+        <R.Crypts>
+          {crypts.map((p: any) => (
+              <CryptItem key={p.id} name={p.name}/>
+          ))}
+        </R.Crypts>
     </R.Container>
   );
 }
