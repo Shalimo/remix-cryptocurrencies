@@ -1,27 +1,31 @@
-import type { LinksFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node"; // or cloudflare/deno
+import { useLoaderData } from "@remix-run/react";
 
-import stylesUrl from "~/styles/index.css";
+import crypts, { Crypts } from "../../lib/crypts";
+import * as R from "../styles/CryptsContainer"
 
-export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesUrl }];
+export let loader: LoaderFunction = ({ request }: any) => {
+  const url = new URL(request.url);
+  const crypt = (url.searchParams.get("crypt") ?? "").toLowerCase();
+  return json(
+    crypts.filter(({ name }) => name.toLowerCase().includes(crypt))
+  );
 };
 
-export default function IndexRoute() {
+export default function Main() {
+  let crypts = useLoaderData<Crypts[]>();
+
   return (
-    <div className="container">
-      <div className="content">
-        <h1>
-          Remix <span>Jokes!</span>
-        </h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to="jokes">Read Jokes</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+    <R.Container>
+      <h1>Cryptocurrencies</h1>
+      <R.Crypts>
+        {crypts.map((p: any) => (
+            <R.Link to={`/crypt/${p.name}`}>
+                {p.name}
+            </R.Link>
+        ))}
+        </R.Crypts>
+        </R.Container>
   );
 }
