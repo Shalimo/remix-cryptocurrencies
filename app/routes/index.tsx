@@ -17,7 +17,7 @@ export default function Main() {
 
   return (
     <R.Container>
-      <h1>Cryptocurrencies</h1>
+      <h1 style={{color: "#fff"}}>Cryptocurrencies</h1>
         <R.Crypts>
           {crypts.map((p: any) => (
               <CryptItem key={p.id} name={p.name}/>

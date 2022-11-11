@@ -40,7 +40,7 @@ export default function JokesIndexRoute() {
       Name: data.name,
       Symbol: data.symbol,
       Supply: data.supply,
-      MaxSupply: data.maxSupply || 'Не указано',
+      MaxSupply: data.maxSupply || 'Data not specified',
       MarketCapUsd: data.marketCapUsd,
       VolumeUsd24Hr: data.volumeUsd24Hr,
       PriceUsd: data.priceUsd,

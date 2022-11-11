@@ -11,12 +11,15 @@ export const Content = styled.div`
   align-items: center;
   width: auto;
   height: auto;
-  background: #d5c8e0;
+  background: #F5F5DC;
   padding: 20px;
   margin-top: 25px;
   border: 1px solid black;
   border-radius: 10px;
   font-size: 20px;
+  @media (max-width: 970px) {
+    padding: 10px;
+  }
 `
 
 export const Table = styled.table`
@@ -26,8 +29,8 @@ export const Table = styled.table`
 `
 
 export const MainRow = styled.tr`
-  color: #81609c;
-  font-weight: 700;
+  color: #2B2B2B;
+  font-weight: 900;
   font-size: 24px;
 
 `
@@ -35,8 +38,17 @@ export const MainRow = styled.tr`
 export const Row = styled.tr`
   font-weight: 500;
   font-size: 18px;
+  @media (max-width: 670px) {
+    font-size: 14px;
+  }
 `
 
 export const Colums = styled.td`    
-  padding: 20px 80px;
+  padding: 20px 40px;
+  @media (max-width: 670px) {
+    padding: 20px 10px;
+  }
+  @media (max-width: 470px) {
+    padding: 10px 0;
+  }
 `
